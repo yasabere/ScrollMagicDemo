@@ -133,7 +133,7 @@ table {
   position: relative;
 }
 
-.section h1 {
+.section h2 {
   z-index: 10;
   position: absolute;
 }
