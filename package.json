@@ -1,0 +1,12 @@
+{
+  "name": "ScrollMagicPRoject",
+  "version": "1.0.0",
+  "description": "Scrollmagic test project",
+  "main": "index.js",
+  "repository": "https://github.com/yasabere/ScrollMagicDemo",
+  "author": "yasabere@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "scrollmagic": "^2.0.5"
+  }
+}
