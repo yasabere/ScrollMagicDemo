@@ -130,7 +130,7 @@ table {
 
 .section {
   height: 100vh;
-  position: relative;
+  width: 100%;
 }
 
 .section h2 {
@@ -138,18 +138,109 @@ table {
   position: absolute;
 }
 
-.one {
-  background: red;
+.section2  {
+  height: 200vh;
 }
 
-.two {
-  background: blue;
+.section2 > div,
+.section > div {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.one {
+  background-color: black;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 100;
+  background-position: 0px 15px; 
+  position: relative;
+}
+
+.one .title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  color:#585858;
+  position: absolute;
+  width: 100%;
+  height: 68px;
+}
+
+.one .nav {
+  background-color: white;
+}
+
+.one .breadcrumbs {
+  padding: 20px 0px;
+  background-color: white;
+}
+
+.one .splashPage {
+  position: relative;
+  width: 364px;
+  margin-top: 20px;
+  left: 50%;
+  margin-left: -182px;
+}
+
+.one .scrollArrow {
+  position: absolute;
+  width: 136px;
+  top: 70%;
+  left: 50%;
+  margin-left: -68px;
+}
+
+.map {
+  /* height: 200% */
+  height: 200vh!important;
 }
 
 .three {
   background: green;
+  z-index: 100;
 }
 
 #map {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index:0;
+}
+
+.overlay {
+  background-color: white;
+}
+
+.listingCellNoOverlay{
+  text-align: center;
+  background-position: 10px 8px;
+  background-image: url("./images/listingCellNoOverlay.png");
+  background-repeat: no-repeat;
+  width:100%;
   height: 100%;
 }
+
+.listingCellOverlay{
+  text-align: center;
+  background-position: 10px 8px;
+  background-image: url("./images/listingCellWithOverlay.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width:100%;
+  height: 100%;
+}
+
+.listingCell {
+
+}
+
+/* top left 184 217
+middle left 184 137
+top right 160 365
+buttom 350 150 */
+
+
