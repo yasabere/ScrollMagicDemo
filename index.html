@@ -6,12 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="src/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="src/index.css" />
   <script src="src/index.js"></script>
 </head>
 
 <body>
-  <h1>Hello</h1>
+  <div class="section one">
+    <h2>Section 1</h2>
+  </div>
+  <div class="section two">
+    <h2>Section 2</h2>
+    <div id="map"></div>
+  </div>
+  <div class="section three">
+    <h2>Section 3</h2>
+  </div>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNb1P6SAAoHO98FHW9IxmWAlPnw4lC0rY&callback=initMap">
+  </script>
 </body>
 
 </html>
