@@ -218,7 +218,7 @@ table {
 .listingCellNoOverlay{
   text-align: center;
   background-position: 10px 8px;
-  background-image: url("./images/listingCellNoOverlay.png");
+  background-image: url("./images/listingCellNoOverlay1.png");
   background-repeat: no-repeat;
   width:100%;
   height: 100%;
@@ -226,8 +226,8 @@ table {
 
 .listingCellOverlay{
   text-align: center;
-  background-position: 10px 8px;
-  background-image: url("./images/listingCellWithOverlay.png");
+  background-position: 9px 8px;
+  background-image: url("./images/listingCellWithOverlay1.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   width:100%;
@@ -236,6 +236,34 @@ table {
 
 .listingCell {
 
+}
+
+.contact {
+  margin-top: 20px;
+}
+
+.contact .listings{
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  width: 351px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.contact .listings img{
+  /* padding-bottom: 2px; */
+}
+
+.contact .listings img.submit{
+  border-top: thin #DDD solid;
+  padding-top:10px;
+  margin-top:20px;
+}
+
+.contact .listings img.alerts{
+  margin-top:10px;
+  padding-bottom: 10px;
 }
 
 /* top left 184 217

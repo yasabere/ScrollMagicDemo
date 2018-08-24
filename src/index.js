@@ -5,26 +5,26 @@ var points = [
     lat: 36.152470,
     lng: -86.782050,
     title: 'Pine Street Flats',
-    listingImages: './src/images/listingCellNoOverlay.png',
-    listingStats: './src/images/listingCellWithOverlay.png'
+    listingImages: './src/images/PINESTREETFLATSIMAGENOOVERLAY.png',
+    listingStats: './src/images/PINESTREETFLATSIMAGESWITHOVERLAY.png',
   }, {
     lat: 36.158570,
     lng: -86.789610,
     title: 'Gossett on Church',
-    listingImages: './src/images/listingCellNoOverlay.png',
-    listingStats: './src/images/listingCellWithOverlay.png'
+    listingImages: './src/images/listingCellNoOverlay1.png',
+    listingStats: './src/images/listingCellWithOverlay1.png'
   }, {
     lat: 36.164600,
     lng: -86.788710,
     title: 'Residences at Capitol View',
-    listingImages: './src/images/listingCellNoOverlay.png',
-    listingStats: './src/images/listingCellWithOverlay.png'
+    listingImages: './src/images/RESIDENCESATCAPITALVIEWNOOVERLAY.png',
+    listingStats: './src/images/RESIDENCESATCAPITALVIEWWITHOVERLAY.png'
   }, {
     lat: 36.168280,
     lng: -86.783030,
     title: 'The 500 Fifth',
-    listingImages: './src/images/listingCellNoOverlay.png',
-    listingStats: './src/images/listingCellWithOverlay.png'
+    listingImages: './src/images/THE500FIFTHWITHNOOVERLAY.png',
+    listingStats: './src/images/THE500FIFTHWITHOVERLAY.png'
   }
 ]
 var markers = {}
@@ -54,45 +54,94 @@ var size = {
   height: window.innerHeight || document.body.clientHeight
 }
 
-let controller = new ScrollMagic.Controller();
+function createListingDomElements(j) {
 
-//loads in pins
-for (i = 0; i < points.length; i += 1) {
-  var func = function (i) {
-    marker = null
-    var scene = new ScrollMagic.Scene({
-      triggerElement: ".map",
-      duration: 2 * size.height * .80,
-      offset: 200 + (30 * (i + 1))
-    })
-      .addTo(controller)
-      .addIndicators()
-      .on("enter", function (e) {
-        markers[i] = addPointToMap(points[i])
-      })
-      .on("leave", function (e) {
-        markers[i].setMap(null)
-      })
-  }(i)
+  var mapSection = document.createElement("div");
+  mapSection.classList.add("section2");
+
+  var map = document.createElement("div");
+  map.classList.add("map");
+  mapSection.appendChild(map)
+
+  console.log(j)
+
+  var listingSection = document.createElement("div");
+  listingSection.classList.add("section");
+  listingSection.classList.add("overlay");
+
+  var listingCellNoOverlay = document.createElement("div");
+  listingCellNoOverlay.classList.add("listingCellNoOverlay");
+  listingCellNoOverlay.style.backgroundImage = 'url(' + points[j].listingImages + ')'
+  //listingCellNoOverlay.style.backgroundAttachment = 'fixed'
+  listingSection.appendChild(listingCellNoOverlay)
+
+  var statsSection = document.createElement("div");
+  statsSection.classList.add("section");
+  statsSection.classList.add("overlay");
+
+  var listingCellOverlay = document.createElement("div");
+  listingCellOverlay.classList.add("listingCellOverlay");
+  listingCellOverlay.style.backgroundImage = 'url(' + points[j].listingStats + ')'
+  //listingCellOverlay.style.backgroundAttachment = 'fixed'
+  statsSection.appendChild(listingCellOverlay)
+
+  document.getElementById("splash").parentNode.insertBefore(statsSection, document.getElementById("splash").nextSibling);
+  document.getElementById("splash").parentNode.insertBefore(listingSection, document.getElementById("splash").nextSibling);
+  document.getElementById("splash").parentNode.insertBefore(mapSection, document.getElementById("splash").nextSibling);
+
 }
 
-//set up scene for listing
-i = 0
-var scene = new ScrollMagic.Scene({
-  triggerElement: ".listingCellNoOverlay:nth-child(1)",
-  duration: size.height,
-  offset: size.height / 2
-})
-  .setPin(".listingCellNoOverlay")
-  .addIndicators({ name: "1 (duration:" + size.height / 2 + ")" })
-  .addTo(controller)
-  .on("start", function (e) {
-    document.getElementsByClassName("listingCellNoOverlay")[i].style.backgroundImage = 'url(./src/images/listingCellNoOverlay.png)'
-  })
-  .on("end", function (e) {
-    document.getElementsByClassName("listingCellNoOverlay")[i].style.backgroundImage = 'url(./src/images/listingCellWithOverlay.png)'
-  })
+let controller = new ScrollMagic.Controller();
 
+for (j = points.length; j > 0; j -= 1) {
+  createListingDomElements(j - 1)
+}
+
+//loads in pins
+//set up scene for listing
+function setupSections() {
+  for (i = 0; i < points.length; i += 1) {
+    for (j = 0; j < points.length; j += 1) {
+      var func = function (j) {
+        var map = document.getElementsByClassName('map')[i]
+        console.log(map)
+        var scene = new ScrollMagic.Scene({
+          triggerElement: map,
+          duration: 2 * size.height * .80,
+          offset: 200 + (30 * (j + 1))
+        })
+          .addTo(controller)
+          .addIndicators()
+          .on("enter", function (e) {
+            markers[i * j] = addPointToMap(points[j])
+          })
+          .on("leave", function (e) {
+            markers[i * j].setMap(null)
+          })
+      }(j)
+    }
+    var func = function (i) {
+      console.log(document.getElementsByClassName('listingCellNoOverlay'))
+      var section = document.getElementsByClassName('listingCellNoOverlay')[i]
+      var scene = new ScrollMagic.Scene({
+        triggerElement: section,
+        duration: size.height,
+        offset: size.height / 2
+      })
+        .setPin(section)
+        .addIndicators({ name: ".listingCellNoOverlay:nth-child(" + (i + 1) + ") (duration:" + size.height / 2 + ")" })
+        .addTo(controller)
+        .on("start", function (e) {
+          console.log('start', i, section)
+          section.style.backgroundImage = 'url(' + points[i].listingImages + ')'
+        })
+        .on("end", function (e) {
+          console.log('end', i, section)
+          section.style.backgroundImage = 'url(' + points[i].listingStats + ')'
+        })
+    }(i)
+  }
+}
 var link = "https://maps.googleapis.com/maps/api/staticmap?center="
   + center.lat + "," + center.lng
   + '&size=' + (size.width) + 'x' + (size.height)

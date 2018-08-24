@@ -10,6 +10,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
   <script src="lodash.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      setupSections();
+    });
+  </script>
 </head>
 
 <body>
@@ -17,7 +22,7 @@
   <div class="section" style="position: fixed;">
     <div id="map"></div>
   </div>
-  <div class="section">
+  <div id="splash" class="section">
     <div class="one">
       <div class="nav">
         <img src="./src/images/nav.png" />
@@ -33,28 +38,18 @@
       </div>
     </div>
   </div>
-  <div class="section2">
-    <div class="map"></div>
-  </div>
-  <div class="section overlay">
-    <div class="listingCellNoOverlay"></div>
-  </div>
-  <div class="section overlay">
-    <div class="listingCellOverlay"></div>
-  </div>
   <div class="section">
-    <div class="one">
-      <div class="nav">
-        <img src="./src/images/nav.png" />
-      </div>
+    <div class="contact">
       <div class="breadcrumbs">
-        <img src="src/images/breadcrumb.png" />
+        <img src="src/images/RecieptBreadcrumb.png" />
       </div>
-      <div class="splashPage">
-        <img src="src/images/splash.png" />
-      </div>
-      <div class="scrollArrow">
-        <img src="src/images/downArrow.png" />
+      <div class="listings">
+        <img src="src/images/CHECKBOX1.png" />
+        <img src="src/images/CHECKBOX2.png" />
+        <img src="src/images/CHECKBOX3.png" />
+        <img src="src/images/CHECKBOX4.png" />
+        <img class="submit" src="src/images/RECEIPTCONTACTALLCHECKEDCTA.png" />
+        <img class="alerts" src="src/images/RECEIPTAlertsCheckbox.png" />
       </div>
     </div>
   </div>
