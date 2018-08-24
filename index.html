@@ -7,55 +7,32 @@
   <title>Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="src/index.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
-  <script src="lodash.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-      setupSections();
-    });
-  </script>
 </head>
 
 <body>
+  <div class="start">
+    <div class="nav">
+      <img src="./src/images/nav.png" />
+    </div>
+    <div class="itsaMatch">
+      <img src="src/images/ItsAMatch.png" />
+    </div>
+    <div class="links">
+      <a href="suggestions.html">
+        <img src="src/images/ConfirmationBestMatches.png" />
+      </a>
+      <a href="suggestions.html">
+        <img src="src/images/ConfirmationBestRated.png" />
+      </a>
+      <a href="suggestions.html">
+        <img src="src/images/ConfirmationBudgetStretch.png" />
+      </a>
+      <a href="suggestions.html">
+        <img src="src/images/ConfirmationCustomersUltimatelyContacted.png" />
+      </a>
+    </div>
 
-  <div class="section" style="position: fixed;">
-    <div id="map"></div>
   </div>
-  <div id="splash" class="section">
-    <div class="one">
-      <div class="nav">
-        <img src="./src/images/nav.png" />
-      </div>
-      <div class="breadcrumbs">
-        <img src="src/images/breadcrumb.png" />
-      </div>
-      <div class="splashPage">
-        <img src="src/images/splash.png" />
-      </div>
-      <div class="scrollArrow">
-        <img src="src/images/downArrow.png" />
-      </div>
-    </div>
-  </div>
-  <div class="section">
-    <div class="contact">
-      <div class="breadcrumbs">
-        <img src="src/images/RecieptBreadcrumb.png" />
-      </div>
-      <div class="listings">
-        <img src="src/images/CHECKBOX1.png" />
-        <img src="src/images/CHECKBOX2.png" />
-        <img src="src/images/CHECKBOX3.png" />
-        <img src="src/images/CHECKBOX4.png" />
-        <img class="submit" src="src/images/RECEIPTCONTACTALLCHECKEDCTA.png" />
-        <img class="alerts" src="src/images/RECEIPTAlertsCheckbox.png" />
-      </div>
-    </div>
-  </div>
-  <script src="src/index.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4_qxzmwCqu6vCTDUS-mwbjbZNOdVbM6I&callback=initMap">
-  </script>
 </body>
 
 </html>

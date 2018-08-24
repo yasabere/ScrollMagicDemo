@@ -243,7 +243,8 @@ table {
 
 .contact {
   margin-top: 20px;
-  background: #aaaaaa;
+  background-color: #f8f8f8;
+  height: 100%;
 }
 
 .contact .breadcrumbs{
@@ -257,10 +258,7 @@ table {
   width: 351px;
   background-color: white;
   border-radius: 10px;
-}
-
-.contact .listings img{
-  /* padding-bottom: 2px; */
+  padding-bottom: 20p;
 }
 
 .contact .listings img.submit{
@@ -274,9 +272,45 @@ table {
   padding-bottom: 10px;
 }
 
-/* top left 184 217
-middle left 184 137
-top right 160 365
-buttom 350 150 */
+.section.contactSection{
+  height: 103vh;
+}
+
+.section.footerSection{
+  height: 200vh;
+}
+
+.footer {
+  margin-top: 20px;
+  background-color: #f8f8f8;
+  height: 100%;
+}
+
+.footer .breadcrumbs{
+ margin-top: 25px;
+}
+
+.footer .matches{
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+  width: 360px;
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 20p;
+}
+
+.start{
+  background-color: #f8f8f8;
+}
+
+.itsaMatch{
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.links{
+  text-align: center;
+}
 
 
