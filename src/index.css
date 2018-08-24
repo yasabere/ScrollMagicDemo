@@ -218,7 +218,7 @@ table {
 
 .listingCellNoOverlay{
   text-align: center;
-  background-position: 10px 8px;
+  background-position: center 8px;
   background-image: url("./images/listingCellNoOverlay1.png");
   background-repeat: no-repeat;
   width:100%;
@@ -229,7 +229,7 @@ table {
 
 .listingCellOverlay{
   text-align: center;
-  background-position: 10px 8px;
+  background-position: center 8px;
   background-image: url("./images/listingCellWithOverlay1.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
