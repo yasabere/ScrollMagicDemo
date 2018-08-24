@@ -166,7 +166,6 @@ function setupSections() {
       })
         .setPin(sectionMap)
         .addTo(controller)
-        .addIndicators()
     }(i)
   }
 }
