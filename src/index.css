@@ -313,4 +313,8 @@ table {
   text-align: center;
 }
 
+.map img{
+  position: absolute;
+  top: 75vh;
+}
 

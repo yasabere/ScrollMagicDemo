@@ -7,24 +7,28 @@ var points = [
     title: 'Pine Street Flats',
     listingImages: './src/images/PINESTREETFLATSIMAGENOOVERLAY.png',
     listingStats: './src/images/PINESTREETFLATSIMAGESWITHOVERLAY.png',
+    preview: './src/images/PINESTREETFLATSMAPCARD.png',
   }, {
     lat: 36.158570,
     lng: -86.789610,
     title: 'Gossett on Church',
     listingImages: './src/images/listingCellNoOverlay1.png',
-    listingStats: './src/images/listingCellWithOverlay1.png'
+    listingStats: './src/images/listingCellWithOverlay1.png',
+    preview: './src/images/GOSSETTONCHURCHMAPSUMMARY.png',
   }, {
     lat: 36.164600,
     lng: -86.788710,
     title: 'Residences at Capitol View',
     listingImages: './src/images/RESIDENCESATCAPITALVIEWNOOVERLAY.png',
-    listingStats: './src/images/RESIDENCESATCAPITALVIEWWITHOVERLAY.png'
+    listingStats: './src/images/RESIDENCESATCAPITALVIEWWITHOVERLAY.png',
+    preview: './src/images/RESIDENCESATCAPITOLVIEWMAPCARD.png',
   }, {
     lat: 36.168280,
     lng: -86.783030,
     title: 'The 500 Fifth',
     listingImages: './src/images/THE500FIFTHWITHNOOVERLAY.png',
-    listingStats: './src/images/THE500FIFTHWITHOVERLAY.png'
+    listingStats: './src/images/THE500FIFTHWITHOVERLAY.png',
+    preview: './src/images/THE500FIFTHMAPCARD.png',
   }
 ]
 var markers = {}
@@ -72,7 +76,10 @@ function createListingDomElements(j) {
   map.classList.add("map");
   mapSection.appendChild(map)
 
-  console.log(j)
+  var mapImg = document.createElement("img");
+  mapImg.src = points[j].preview
+
+  map.appendChild(mapImg)
 
   var listingSection = document.createElement("div");
   listingSection.classList.add("section");
@@ -133,6 +140,7 @@ function setupSections() {
     var func = function (i) {
       console.log(document.getElementsByClassName('listingCellNoOverlay'))
       var section = document.getElementsByClassName('listingCellNoOverlay')[i]
+      var sectionStats = document.getElementsByClassName('listingCellOverlay')[i]
       var scene = new ScrollMagic.Scene({
         triggerElement: section,
         duration: size.height,
@@ -143,11 +151,22 @@ function setupSections() {
         .on("start", function (e) {
           console.log('start', i, section)
           section.style.backgroundImage = 'url(' + points[i].listingImages + ')'
+          sectionStats.style.backgroundImage = 'url(' + points[i].listingStats + ')'
         })
         .on("end", function (e) {
           console.log('end', i, section)
           section.style.backgroundImage = 'url(' + points[i].listingStats + ')'
+          sectionStats.style.backgroundImage = 'none'
         })
+      var sectionMap = document.getElementsByClassName('map')[i]
+      var scene2 = new ScrollMagic.Scene({
+        triggerElement: sectionMap,
+        duration: size.height * 1 + 47,
+        offset: size.height * .50 - 45
+      })
+        .setPin(sectionMap)
+        .addTo(controller)
+        .addIndicators()
     }(i)
   }
 }
