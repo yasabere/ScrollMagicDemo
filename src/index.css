@@ -226,7 +226,7 @@ table {
 
 .listingCellOverlay{
   text-align: center;
-  background-position: 9px 8px;
+  background-position: 10px 8px;
   background-image: url("./images/listingCellWithOverlay1.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -240,6 +240,7 @@ table {
 
 .contact {
   margin-top: 20px;
+  background: #DDD;
 }
 
 .contact .listings{
