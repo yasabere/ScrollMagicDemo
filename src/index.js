@@ -38,15 +38,24 @@ function initMap() {
   });
 }
 
-function addPointToMap(point) {
+function addPointToMap(point, image) {
   var myLatlng = new google.maps.LatLng(point.lat, point.lng);
   var marker = new google.maps.Marker({
     position: myLatlng,
     map: map,
     draggable: false,
-    title: "Property One"
+    title: "Property One",
+    icon: image
   });
   return marker
+}
+
+function toggleBounce(marker) {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
 }
 
 var size = {
@@ -102,7 +111,7 @@ for (j = points.length; j > 0; j -= 1) {
 function setupSections() {
   for (i = 0; i < points.length; i += 1) {
     for (j = 0; j < points.length; j += 1) {
-      var func = function (j) {
+      var func = function (j, i) {
         var map = document.getElementsByClassName('map')[i]
         console.log(map)
         var scene = new ScrollMagic.Scene({
@@ -111,14 +120,15 @@ function setupSections() {
           offset: 200 + (30 * (j + 1))
         })
           .addTo(controller)
-          .addIndicators()
+          //.addIndicators()
           .on("enter", function (e) {
-            markers[i * j] = addPointToMap(points[j])
+            console.log(i === j, i, j)
+            markers[i + '' + j] = addPointToMap(points[j], i !== j ? './src/images/PinImage.png' : undefined)
           })
           .on("leave", function (e) {
-            markers[i * j].setMap(null)
+            markers[i + '' + j].setMap(null)
           })
-      }(j)
+      }(j, i)
     }
     var func = function (i) {
       console.log(document.getElementsByClassName('listingCellNoOverlay'))
@@ -129,7 +139,6 @@ function setupSections() {
         offset: size.height / 2
       })
         .setPin(section)
-        .addIndicators({ name: ".listingCellNoOverlay:nth-child(" + (i + 1) + ") (duration:" + size.height / 2 + ")" })
         .addTo(controller)
         .on("start", function (e) {
           console.log('start', i, section)
